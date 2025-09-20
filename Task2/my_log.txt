@@ -1,0 +1,7 @@
+2023-10-15 14:30:25 User ADMIN logged in from 192.168.1.100
+2023-10-15 14:31:10 Connection from 8.8.8.8 failed - ERROR 404
+2023-10-15 14:32:45 Email sent to user@example.com and admin@company.org
+2023-10-15 14:33:20 SECURITY ALERT: Multiple FAILED attempts from 10.0.0.5
+2023-10-15 14:34:00 Server restarted by ROOT user
+Contact support at help@support.com for issues
+DEBUG: Processing request from 172.16.254.1
