@@ -33,6 +33,7 @@ def main():
         groups[s.group] = groups.setdefault(s.group, []) + [s.average_grade()]
 
 
+
     print("Средний балл по группам:")
     for group, grades in groups.items():
         print(f'Группа {group}: {sum(grades)/len(grades):.3f}')

@@ -9,4 +9,5 @@ elif n2 <= n1 and n2 <= n3:
 else:
     min_num = n3
 
+
 print("Наименьшее число: ", min_num)

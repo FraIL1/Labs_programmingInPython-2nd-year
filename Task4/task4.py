@@ -28,6 +28,7 @@ try:
 except:
     print("A вырожденная")
 
+
 print()
 
 # Решение СЛУ

@@ -11,7 +11,6 @@ for ip in ip_list:
 
 print()
 
-
 print("2. ДАТЫ И ВРЕМЯ:")
 date_list = re.findall(r'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d', log_text)
 for date in date_list:

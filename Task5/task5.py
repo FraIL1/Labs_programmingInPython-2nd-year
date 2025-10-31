@@ -1,4 +1,5 @@
 import math
+
 def safe_apply(func, data):
     results = []
     errors = []

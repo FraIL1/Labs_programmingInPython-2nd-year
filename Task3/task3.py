@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 data = {
     'Товар': ['A', 'B', 'C', 'A', 'B', 'C', 'A', 'B', 'C', 'A'],
     'Цена': [100, 150, np.nan, 120, 160, 200, 110, np.nan, 190, 130],
