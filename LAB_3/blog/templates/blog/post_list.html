@@ -1,0 +1,52 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<h2>Последние посты</h2>
+
+<!-- форма поиска -->
+<form method="get" action=".">
+    <input type="text" name="q" placeholder="Поиск постов..." value="{{ request.GET.q }}">
+    <button type="submit">Найти</button>
+    {% if request.GET.q %}
+        <a href="{% url 'post_list' %}">Сбросить поиск</a>
+    {% endif %}
+</form>
+
+{% for post in posts %}
+    <div class="post">
+        <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        {% endif %}
+        <p>{{ post.content|truncatewords:30 }}</p>
+        <small>
+            Автор: {{ post.author }} | 
+            Опубликовано: {{ post.published_date|date:"d.m.Y H:i" }} |
+            Категория: {{ post.category.name }}
+        </small>
+    </div>
+{% empty %}
+    <p>Пока нет постов.</p>
+{% endfor %}
+
+<!-- пагинация -->
+<div class="pagination">
+    <span class="step-links">
+        {% if posts.has_previous %}
+            <a href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">« первая</a>
+            <a href="?page={{ posts.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">предыдущая</a>
+        {% endif %}
+
+        <span class="current">
+            Страница {{ posts.number }} из {{ posts.paginator.num_pages }}
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">следующая</a>
+            <a href="?page={{ posts.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">последняя »</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}
